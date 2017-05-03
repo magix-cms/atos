@@ -1,0 +1,6 @@
+.form-group checkbox > label {
+    margin-top: 0;
+}
+.form-group label.control-label{
+    margin-top: 10px;
+}
