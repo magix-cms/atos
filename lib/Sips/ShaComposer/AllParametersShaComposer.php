@@ -1,11 +1,5 @@
 <?php
 
-namespace Sips\ShaComposer;
-
-use Sips\Passphrase;
-use Sips\ShaComposer\ShaComposer;
-use Sips\ParameterFilter\ParameterFilter;
-
 class AllParametersShaComposer implements ShaComposer
 {
     /**

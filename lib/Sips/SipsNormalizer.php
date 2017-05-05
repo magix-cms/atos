@@ -1,8 +1,7 @@
 <?php
 
-namespace Sips;
 
-class Normalizer
+class SipsNormalizer
 {
 
     private static $invalid = array(

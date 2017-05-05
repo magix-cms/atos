@@ -1,6 +1,5 @@
 <?php
 
-namespace Sips\ShaComposer;
 
 /**
  * SHA Composers interface

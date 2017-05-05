@@ -22,9 +22,16 @@ class DBAtos
             $sql = '';
             $params = false;
             if($config['context'] === 'all' || $config['context'] === 'return') {
-                $sql = 'SELECT bd.*
+                if($config['type'] === 'active'){
+                    $sql = 'SELECT bd.*
+                    FROM mc_plugins_atos_paymentmeanbrand AS bd
+                    WHERE bd.status = :status';
+                    $params = $data;
+                }else{
+                    $sql = 'SELECT bd.*
                 FROM mc_plugins_atos_paymentmeanbrand AS bd';
-                $params = $data;
+                    $params = $data;
+                }
                 return $sql ? magixglobal_model_db::layerDB()->select($sql,$params) : null;
             }elseif($config['context'] === 'unique' || $config['context'] === 'last') {
                 $sql = 'SELECT atos.*

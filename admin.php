@@ -82,10 +82,17 @@ class plugins_atos_admin extends DBAtos
         $this->template->assign('getItemData', $data, true);
     }
 
+    /**
+     * @return array
+     */
     private function setItems(){
         $data = parent::fetchData(array('context'=>'all'));
         return $data;
     }
+
+    /**
+     *
+     */
     private function getItems(){
         $data = $this->setItems();
         $this->template->assign('getItems', $data, true);

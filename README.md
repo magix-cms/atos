@@ -1,9 +1,9 @@
 # atos
-Sips-International Worldline
+Sips-International Worldline plugin for Magix cms Edit
 
 ![Plugin Atos Magix CMS](http://worldline.com/etc/designs/neoweb/images/images-wl/worldline-logo.jpg "Plugin Atos pour Magix CMS")
 
-###version 
+### version 
 
 [![release](https://img.shields.io/github/release/magix-cms/atos.svg)](https://github.com/magix-cms/atos/releases/latest)
 
