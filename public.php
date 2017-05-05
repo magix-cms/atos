@@ -148,8 +148,8 @@ class plugins_atos_public extends DBAtos
                 'acquirerResponsecode'  => $acquirerResponsecode[$paymentResponse->getParam('responseCode')],
                 'orderId'               => $paymentResponse->getParam('orderId'),
                 'customerId'            => $paymentResponse->getParam('customerId'),
-                'returnContext'         => $paymentResponse->getParam('returnContext'),
                 'customerEmail'         => $paymentResponse->getParam('customerEmail'),
+                'returnContext'         => $paymentResponse->getParam('returnContext'),
                 'transactionReference'  => $paymentResponse->getParam('transactionReference'),
                 'paymentMeanBrand'      => $paymentResponse->getParam('paymentMeanBrand'),
                 'getAmount'             => number_format(($paymentResponse->getAmount() / 100), 2, '.', ''),
@@ -165,8 +165,8 @@ class plugins_atos_public extends DBAtos
                 'acquirerResponsecode'  => $acquirerResponsecode[$paymentResponse->getParam('responseCode')],
                 'orderId'               => $paymentResponse->getParam('orderId'),
                 'customerId'            => $paymentResponse->getParam('customerId'),
-                'returnContext'         => $paymentResponse->getParam('returnContext'),
                 'customerEmail'         => $paymentResponse->getParam('customerEmail'),
+                'returnContext'         => $paymentResponse->getParam('returnContext'),
                 'transactionReference'  => $paymentResponse->getParam('transactionReference'),
                 'paymentMeanBrand'      => NULL,
                 'getAmount'             => number_format(($paymentResponse->getAmount() / 100), 2, '.', ''),
@@ -186,14 +186,14 @@ class plugins_atos_public extends DBAtos
      * test account with uniq page (test only)
      */
     private function testAccount($config){
-        $setdata = parent::fetchData(array('context'=>'unique'));
-        if($setdata['accountType'] === 'TEST'){
+        $setData = parent::fetchData(array('context'=>'unique'));
+        if($setData['accountType'] === 'TEST'){
             if(isset($this->brand)){
                 $data = $this->getPaymentRequest($config);
                 $this->template->assign('getItemData', $data, true);
             }else{
                 if(isset($_POST['Encode'])){
-                    $data = $this->getPaymentResponse($setdata);
+                    $data = $this->getPaymentResponse($setData);
                     $this->template->assign('getPaymentResponse', $data, true);
                 }else{
                     $this->getPaymentBrand();
@@ -214,8 +214,8 @@ class plugins_atos_public extends DBAtos
             'amount'              =>  '1000',
             'orderId'             =>  'ds5f4f45sf456d4',
             'customerId'          =>  '4',
-            'returnContext'       =>  '10',
-            'customerEmail'       =>  'test@mail.com'
+            'customerEmail'       =>  'test@mail.com',
+            'returnContext'       =>  '10'
         ));
     }
 }
