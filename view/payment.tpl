@@ -8,6 +8,7 @@
 {else}
     {if is_array($getPaymentBrand) && !empty($getPaymentBrand)}
         <form method="post" action="{$smarty.server.REQUEST_URI}">
+            <input type="hidden" id="id_cart_to_send" name="id_cart_to_send" value="{$smarty.post.id_cart_to_send}" />
             <div class="row">
                 <div class="form-group">
                     <label for="brand">{#select_brand#}</label>
