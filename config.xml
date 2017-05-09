@@ -22,9 +22,9 @@
 				</authors>
 				<version>
 					<date_create>03/05/2017</date_create>
-					<date_update>03/05/2017</date_update>
-					<number>0.5.0</number>
-					<phase>Alpha</phase>
+					<date_update>09/05/2017</date_update>
+					<number>1.0.0</number>
+					<phase>Stable</phase>
 					<support>
                         <ticket href="https://github.com/magix-cms/atos/issues"></ticket>
                         <git href="https://github.com/magix-cms/atos"></git>
