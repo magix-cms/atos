@@ -91,18 +91,28 @@ class plugins_atos_public extends DBAtos
             $paymentRequest->setAmount(intval($data['amount']));
             $paymentRequest->setCurrency('EUR');
             $paymentRequest->setLanguage($data['iso']);
-            if($data['orderId'] != null) {
+            if(isset($data['orderId'])) {
                 $paymentRequest->setOrderId($data['orderId']);
+            }else{
+                $paymentRequest->setOrderId('0');
             }
-            if($data['customerId'] != null) {
+
+            if(isset($data['customerId'])) {
                 $paymentRequest->setCustomerId($data['customerId']);
+            }else{
+                $paymentRequest->setCustomerId('0');
             }
-            if($data['returnContext'] != null) {
+
+            if(isset($data['returnContext'])) {
                 $paymentRequest->setReturnContext($data['returnContext']);
+            }else{
+                $paymentRequest->setReturnContext('0');
             }
-            if($data['customerEmail'] != null) {
+
+            if(isset($data['customerEmail'])) {
                 $paymentRequest->setCustomerEmail($data['customerEmail']);
             }
+
             $paymentRequest->setPaymentBrand($data['brand']);
             $paymentRequest->validate();
             $newData = array('Data' => $paymentRequest->toParameterString(), 'InterfaceVersion' => 'HP_2.4', 'Seal' => $paymentRequest->getShaSign(),'accountType'=>$data['accountType'],'getSipsUri'=>$paymentRequest->getSipsUri());
@@ -128,7 +138,7 @@ class plugins_atos_public extends DBAtos
     /**
      * Get items payment mean brand
      */
-    private function getPaymentBrand(){
+    public function getPaymentBrand(){
         $data = $this->setPaymentBrand();
         $this->template->assign('getPaymentBrand', $data, true);
     }
@@ -144,6 +154,7 @@ class plugins_atos_public extends DBAtos
         $acquirerResponsecode = $this->acquirerResponsecode();
         if($paymentResponse->isValid($shaComposer) && $paymentResponse->isSuccessful()) {
             return array(
+                'response'              => 'true',
                 'responseCode'          => $paymentResponse->getParam('responseCode'),
                 'acquirerResponsecode'  => $acquirerResponsecode[$paymentResponse->getParam('responseCode')],
                 'orderId'               => $paymentResponse->getParam('orderId'),
@@ -157,14 +168,16 @@ class plugins_atos_public extends DBAtos
             );
         }else {
             // perform logic when the validation fails
-            /*print '<pre>';
+            /*print number_format(($paymentResponse->getAmount() / 100), 2, '.', '');
+            print '<pre>';
             print_r($paymentResponse).'<br />';
             print '</pre><br />';*/
             return array(
+                'response'              => 'false',
                 'responseCode'          => $paymentResponse->getParam('responseCode'),
                 'acquirerResponsecode'  => $acquirerResponsecode[$paymentResponse->getParam('responseCode')],
                 'orderId'               => $paymentResponse->getParam('orderId'),
-                'customerId'            => $paymentResponse->getParam('customerId'),
+                'customerId'            => NULL,
                 'customerEmail'         => $paymentResponse->getParam('customerEmail'),
                 'returnContext'         => $paymentResponse->getParam('returnContext'),
                 'transactionReference'  => $paymentResponse->getParam('transactionReference'),
@@ -201,6 +214,14 @@ class plugins_atos_public extends DBAtos
             }
             $this->template->display('index.tpl');
         }
+    }
+
+    /**
+     * @param $config
+     * @return array
+     */
+    public function fetchData($config){
+        return parent::fetchData($config);
     }
 
     /**
