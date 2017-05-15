@@ -22,7 +22,7 @@ Ce plugin est dédié a Magix CMS et travail avec Worldline Sips (Atos).
  * Une fois dans le plugin, laisser faire l'auto installation
  * Il ne reste que la configuration du plugin pour correspondre avec vos données.
  
- ####Exemple d'utilisation dans votre panier
+ #### Exemple d'utilisation dans votre panier
  **Préparer les données a envoyer :**
   ```php
   $brand = $_POST['brand'];
