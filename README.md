@@ -55,6 +55,11 @@ Ce plugin est dédié a Magix CMS et travail avec Worldline Sips (Atos).
        $atos->getPaymentBrand();
    }
   ````
+  #### Configuration
+ ![configuration-atos](https://cloud.githubusercontent.com/assets/356674/26103886/d461936e-3a3b-11e7-8a25-03c5a981fb6a.png)
+ 
+ #### Les modes de paiements
+ ![modes-paiements-atos](https://cloud.githubusercontent.com/assets/356674/26103885/d3d9f42c-3a3b-11e7-8418-7eda5c719fc1.png)
  
   Ressources
   -----
