@@ -1,6 +1,13 @@
 <?php
 require_once ('db/atos.php');
-require_once ('autoload.php');
+require_once ('lib/Sips/autoload.php');
+Sips\Autoloader::register();
+
+use Sips\Passphrase;
+use Sips\PaymentResponse;
+use Sips\ShaComposer\AllParametersShaComposer;
+use Sips\PaymentRequest;
+use Sips\SipsCurrency;
 
 class plugins_atos_public extends DBAtos
 {
@@ -212,6 +219,7 @@ class plugins_atos_public extends DBAtos
                     $this->getPaymentBrand();
                 }
             }
+            print 'test';
             $this->template->display('index.tpl');
         }
     }
@@ -233,7 +241,7 @@ class plugins_atos_public extends DBAtos
             'iso'                 =>  frontend_model_template::current_Language(),
             'brand'               =>  $this->brand,
             'amount'              =>  '1000',
-            'orderId'             =>  'ds5f4f45sf456d4',
+            'orderId'             =>  '45t4er564t5er4',
             'customerId'          =>  '4',
             'customerEmail'       =>  'test@mail.com',
             'returnContext'       =>  '10'

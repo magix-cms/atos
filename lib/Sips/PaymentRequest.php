@@ -1,5 +1,12 @@
 <?php
 
+namespace Sips;
+
+use Sips\ShaComposer\ShaComposer;
+use \BadMethodCallException;
+use \InvalidArgumentException;
+use Sips\Normalizer;
+
 class PaymentRequest
 {
     const SIMU = "https://payment-webinit.simu.sips-atos.com/paymentInit";

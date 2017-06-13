@@ -1,5 +1,10 @@
 <?php
 
+namespace Sips;
+
+use \InvalidArgumentException;
+use Sips\ShaComposer\ShaComposer;
+
 class PaymentResponse
 {
     /** @var string */

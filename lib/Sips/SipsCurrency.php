@@ -1,5 +1,9 @@
 <?php
 
+namespace Sips;
+
+use \InvalidArgumentException;
+
 class SipsCurrency
 {
 

@@ -1,5 +1,6 @@
 <?php
 
+namespace Sips;
 
 final class Passphrase
 {
@@ -11,7 +12,7 @@ final class Passphrase
     public function __construct($passphrase)
     {
         if (!is_string($passphrase)) {
-            throw new InvalidArgumentException("String expected");
+            throw new \InvalidArgumentException("String expected");
         }
         $this->passphrase = $passphrase;
     }
